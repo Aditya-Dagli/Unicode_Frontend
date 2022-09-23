@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="constyle.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+
+        function validate()
+        {                
+           { 
+             var username = document.getElementById("name").value;
+             var regx = /^[A-Za-z]+$/;
+              if(!regx.test(username))
+              {
+                alert('Please input alphabet characters only');
+                document.getElementById("name1").style.visibility="visible";
+                return false;
+              }
+              else
+              {
+                  document.getElementById("name1").innerHTML="Valid";
+                  document.getElementById("name1").style.visibility="visible";
+                  document.getElementById("name1").style.color="green";
+              }
+              
+            }
+           
+            {
+             var phone = document.getElementById("num").value;
+             var regph = /^[7-9][0-9]{9}$/;
+              if(!regph.test(phone))
+                {
+                    alert("Invalid phone number");
+                    document.getElementById("num1").style.visibility="visible";
+                    return false;
+                }
+              else
+              {
+                  document.getElementById("num1").innerHTML="Valid";
+                  document.getElementById("num1").style.visibility="visible";
+                  document.getElementById("num1").style.color="green";
+              }
+            }
+            
+
+           
+             var email = document.getElementById("email").value;
+             var regem = /^([a-z A-Z 0-9\.-]+)@([a-z 0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
+              if(email=="" || !regem.test(email))
+                {
+                    alert("InValid email address");
+                    document.getElementById("em1").style.visibility="visible";
+                    return false;
+                }
+                else
+              {
+                  document.getElementById("em1").innerHTML="Valid";
+                  document.getElementById("em1").style.visibility="visible";
+                  document.getElementById("em1").style.color="green";
+              }
+                
+            return true;             
+        }
+        
+        
+    </script>
+    <title>Contact Me</title>
+  </head>
+
+  <body>
+      <div class="bg">
+    
+      <form onsubmit="return validate()" action="message.html" target="_blank" method="POST">
+				<h1 style="font-size:2.5vw"><br>Enter your details!</h1>
+         
+        <section class="name" style="font-size:2vw">
+             <label for="name">Enter Name</label>
+    			<input style="font-size:1.5vw" type="text" placeholder="name" id="name">
+                <label id="name1" style="color: red;visibility:hidden">Invalid</label>
+        </section>
+   
+
+        <section class="number" style="font-size:2vw">
+            <label for="num">Enter Mobile Number</label>
+             <input style="font-size:1.5vw" id="num" placeholder="10-digit Indian number" type="text">
+             <label id="num1" style="color: red;visibility:hidden">Invalid</label>
+        </section>
+  
+
+        <section class="email" style="font-size:2vw">
+            <label for="email">Enter Email Address</label>
+             <input style="font-size:1.5vw" id="email" placeholder="email address" type="text">
+             <label id="em1" style="color: red;visibility:hidden">Invalid</label>
+        </section>
+
+        <section class="rating">
+            <label style="font-size:2vw; color: aliceblue;" for="rating">How are you finding this page?</label>
+            <br><br>
+            <span style="font-size:1.2vw; color: aliceblue;">Bad</span>
+            <input type="range" name="rating" id="rating" value="3" min="1" max="5">
+            <span style="font-size:1.2vw; color: aliceblue;">Awesome!</span>
+          </section>
+          <br><br>
+
+        <section class="submission">
+          <button style="font-size:1.2vw;" onclick="validate()" type="submit" name="submit">Submit</button>
+        </section>
+      </form>
+    </section>
+
+    </div>
+  </body>
+</html>
